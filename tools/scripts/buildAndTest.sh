@@ -8,12 +8,12 @@
 ./tools/scripts/generateAmalgamatedFiles.py
 
 # 2. Configure the full test build
-cmake -B debug-build -S . -DCMAKE_BUILD_TYPE=Debug --preset all-tests
+cmake -B debug-build -S . -DCMAKE_BUILD_TYPE=Debug --preset all-tests -G Ninja
 
 # 3. Run the actual build
 cmake --build debug-build
 
 # 4. Run the tests using CTest
 cd debug-build
-ctest -j 4 --output-on-failure -C Debug
+ctest -j 16 --output-on-failure -C Debug
 # end-snippet
